@@ -10,7 +10,6 @@ import java.util.Set;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @Entity
 public class Cliente {
 

@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/clientes")
 public class ClienteController {
@@ -22,5 +24,9 @@ public class ClienteController {
     @ResponseStatus(HttpStatus.CREATED)
     public Cliente cadastrar(@RequestBody Cliente cliente){
         return clienteRepository.save(cliente);
+    }
+    @GetMapping("/consulta")
+    public List<Cliente> consultarClientes(){
+        return clienteRepository.findAll();
     }
 }
