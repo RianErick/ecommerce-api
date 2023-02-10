@@ -1,5 +1,6 @@
 package com.curso.vendas.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -19,6 +20,7 @@ public class Cliente {
     private Integer id;
     private String nome;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "cliente" , fetch = FetchType.LAZY)
     private Set <Pedido> pedidos;
 
