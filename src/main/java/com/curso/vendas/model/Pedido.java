@@ -8,10 +8,8 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Set;
 
-
 @Setter
 @Getter
-@AllArgsConstructor
 @Entity
 public class Pedido {
 
@@ -26,7 +24,7 @@ public class Pedido {
     @Column(name = "data_pedido")
     private LocalDate dataPedido;
 
-    @Column(length = 20,precision = 2)
+    @Column(precision = 20 , scale = 2)
     private BigDecimal total;
 
     @OneToMany(mappedBy = "pedido")
