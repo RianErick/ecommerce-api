@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.web.bind.annotation.CookieValue;
 
 import java.time.LocalDate;
 import java.util.Set;
@@ -19,6 +20,9 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
+
+    @Column(name = "cpf", length = 11)
+    private String cpf;
 
     @JsonIgnore
     @OneToMany(mappedBy = "cliente" , fetch = FetchType.LAZY)

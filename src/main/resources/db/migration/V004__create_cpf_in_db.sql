@@ -1,0 +1,1 @@
+ALTER TABLE cliente ADD cpf varchar (11)
