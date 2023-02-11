@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -29,7 +30,8 @@ public class ClienteController {
     public ResponseEntity <Cliente> consultarPeloId(@PathVariable Integer id ) {
         return clienteRepository.findById(id)
                 .map(cliente -> ResponseEntity.ok(cliente))
-                .orElse(ResponseEntity.notFound().build());
+                .orElseThrow( () -> new ResponseStatusException
+                        (HttpStatus.NOT_FOUND, "Cliente nao encontrado"));
     }
     @PutMapping("/editar/{id}")
     public ResponseEntity <Cliente> editarCliente(@PathVariable Integer id, @RequestBody Cliente cliente){
@@ -49,8 +51,7 @@ public class ClienteController {
         return ResponseEntity.noContent().build();
     }
     @GetMapping("/nomes/ordem")
-    public List<Cliente> OrdenarNomes(){
-         return clienteRepository.findByOrderByNome();
+    public List<Cliente> OrdenarNomes() {
+        return clienteRepository.findByOrderByNome();
     }
-
 }
