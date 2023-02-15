@@ -14,8 +14,7 @@ public interface ClienteRepository extends JpaRepository<Cliente,Integer> {
    List <Cliente> findByNomeOrId(String nome,Integer id);
    List <Cliente> findByNomeLike(String nome);
    Cliente findOneById(Integer id);
-   List <Cliente> findByNome(String nome);
-
    List<Cliente> findByOrderByNome();
+   Cliente findByNome (String nome);
 
 }
