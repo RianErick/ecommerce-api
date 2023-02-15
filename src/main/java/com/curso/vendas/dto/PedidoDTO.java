@@ -1,22 +1,18 @@
 package com.curso.vendas.dto;
 
+import com.curso.vendas.model.Cliente;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-//{
-//        "cliente" : 1,
-//        "total" :  100,
-//        "itens" : [
-//        {
-//        "produto" : 1,
-//        "quantidade" : 1
-//        }
-//        ]
-//        }
+
+@Data
 public class PedidoDTO {
 
-    private Integer produto;
-    private Integer quantidade;
+    private Integer cliente;
+    private BigDecimal total;
+    private List<itensPedidoDTO> itens;
 
 }
