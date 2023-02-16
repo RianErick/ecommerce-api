@@ -1,5 +1,6 @@
 package com.curso.vendas.controller;
 
+import com.curso.vendas.exception.ClienteNullException;
 import com.curso.vendas.model.Cliente;
 import com.curso.vendas.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +32,7 @@ public class ClienteController {
     public ResponseEntity <Cliente> consultarPeloId(@PathVariable Integer id ) {
         return clienteRepository.findById(id)
                 .map(cliente -> ResponseEntity.ok(cliente))
-                .orElseThrow( () -> new ResponseStatusException
-                        (HttpStatus.NOT_FOUND, "Cliente nao encontrado"));
+                .orElseThrow( () -> new ClienteNullException(HttpStatus.NOT_FOUND,"Cliente nao encontrado"));
     }
     @PutMapping("/editar/{id}")
     public ResponseEntity <Cliente> editarCliente(@PathVariable Integer id, @RequestBody Cliente cliente){
@@ -62,6 +62,8 @@ public class ClienteController {
                 .matching()
                 .withIgnoreCase()
                 .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
+
+
 
         Example example = Example.of(filtro,matcher);
         return clienteRepository.findAll(example);
