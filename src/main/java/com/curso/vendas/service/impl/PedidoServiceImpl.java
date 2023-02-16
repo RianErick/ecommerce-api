@@ -2,7 +2,7 @@ package com.curso.vendas.service.impl;
 
 import com.curso.vendas.dto.PedidoDTO;
 import com.curso.vendas.dto.itensPedidoDTO;
-import com.curso.vendas.exception.RegaNegocioExeption;
+import com.curso.vendas.exception.RegraNegocioExeption;
 import com.curso.vendas.model.Cliente;
 import com.curso.vendas.model.ItemPedido;
 import com.curso.vendas.model.Pedido;
@@ -13,9 +13,10 @@ import com.curso.vendas.repository.PedidoRepository;
 import com.curso.vendas.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDate;
 import java.util.List;
+
 import java.util.stream.Collectors;
 
 @Service
@@ -34,12 +35,13 @@ public class PedidoServiceImpl implements PedidoService{
     private ItemPedidoRepository itemPedidoRepository;
 
     @Override
+    @Transactional
     public Pedido salvar(PedidoDTO dto) {
 
         Integer idCliente = dto.getCliente();
-     Cliente cliente = clienteRepository
+        Cliente cliente = clienteRepository
                 .findById(idCliente).
-                orElseThrow( () -> new RegaNegocioExeption("Codigo de Cliente Invalido"));
+                 orElseThrow( () -> new RegraNegocioExeption("Codigo de Cliente Invalido"));
 
          Pedido pedido = new Pedido();
          pedido.setTotal(dto.getTotal());
@@ -47,18 +49,20 @@ public class PedidoServiceImpl implements PedidoService{
          pedido.setCliente(cliente);
         List <ItemPedido> itemPedidos = converterItens(pedido,dto.getItens());
 
-
-         return null;
+        pedidoRepository.save(pedido);
+        itemPedidoRepository.saveAll(itemPedidos);
+        pedido.setItens(itemPedidos);
+        return pedido;
     }
     private List<ItemPedido> converterItens (Pedido pedido , List <itensPedidoDTO> itens){
-        if(itens.isEmpty()){
-            throw new RegaNegocioExeption("Pedido Sem Itens");
+        if(itens == null){
+        throw new RegraNegocioExeption("Pedido Sem Item");
         }
         return itens.stream().map(dto -> {
 
             Integer idProduto = dto.getProduto();
-        Produto produto = produtoRepository.findById(idProduto)
-                    .orElseThrow(() -> new RegaNegocioExeption("Codigo de prduto invalido" + idProduto));
+            Produto produto = produtoRepository.findById(idProduto)
+                    .orElseThrow(() -> new RegraNegocioExeption("Codigo de produto invalido " + idProduto));
 
             ItemPedido itemPedido = new ItemPedido();
             itemPedido.setQuantidade(dto.getQuantidade());
