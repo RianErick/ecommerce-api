@@ -1,7 +1,7 @@
 package com.curso.vendas.controller;
 
 
-import com.curso.vendas.model.Cliente;
+import com.curso.vendas.exception.regras.ClienteNullException;
 import com.curso.vendas.model.Produto;
 import com.curso.vendas.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,6 @@ import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -37,8 +36,7 @@ public class ProdutoController {
     public ResponseEntity<Produto> buscarPeloId(@PathVariable Integer id) {
         return produtoRepository.findById(id)
                 .map(produto -> ResponseEntity.ok(produto))
-                .orElseThrow(() -> new ResponseStatusException
-                        (HttpStatus.NOT_FOUND, "Produto nao encontrado"));
+                .orElseThrow(() -> new ClienteNullException(HttpStatus.NOT_FOUND,"Produto nao encontrado"));
     }
 
     @PutMapping("/editar/{id}")

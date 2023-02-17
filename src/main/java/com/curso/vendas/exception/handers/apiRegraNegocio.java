@@ -4,12 +4,12 @@ import lombok.Getter;
 import java.util.Arrays;
 import java.util.List;
 
-public class apiErrors {
+public class apiRegraNegocio {
 
     @Getter
     private List<String> erros;
 
-    public apiErrors(String mensagemErro) {
+    public apiRegraNegocio(String mensagemErro) {
         this.erros = Arrays.asList(mensagemErro);
     }
 }

@@ -1,4 +1,4 @@
-package com.curso.vendas.exception;
+package com.curso.vendas.exception.regras;
 
 import org.springframework.http.HttpStatus;
 

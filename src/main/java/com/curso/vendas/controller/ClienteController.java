@@ -1,6 +1,6 @@
 package com.curso.vendas.controller;
 
-import com.curso.vendas.exception.ClienteNullException;
+import com.curso.vendas.exception.regras.ClienteNullException;
 import com.curso.vendas.model.Cliente;
 import com.curso.vendas.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,7 @@ import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
+
 import java.util.List;
 
 @RestController
@@ -62,9 +62,6 @@ public class ClienteController {
                 .matching()
                 .withIgnoreCase()
                 .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
-
-
-
         Example example = Example.of(filtro,matcher);
         return clienteRepository.findAll(example);
 
