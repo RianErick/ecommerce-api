@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente,Integer> {
@@ -14,7 +15,7 @@ public interface ClienteRepository extends JpaRepository<Cliente,Integer> {
    List <Cliente> findByNomeOrId(String nome,Integer id);
    List <Cliente> findByNomeLike(String nome);
    Cliente findOneById(Integer id);
-   List<Cliente> findByOrderByNome();
+  Optional<Cliente> findByOrderByNome();
    Cliente findByNome (String nome);
 
 }

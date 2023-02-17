@@ -52,8 +52,10 @@ public class ClienteController {
         return ResponseEntity.noContent().build();
     }
     @GetMapping("/nomes/ordem")
-    public List<Cliente> OrdenarNomes() {
-        return clienteRepository.findByOrderByNome();
+    public ResponseEntity<Cliente> OrdenarNomes() {
+        return clienteRepository.findByOrderByNome()
+                .map(cliente -> ResponseEntity.ok(cliente) )
+                .orElseThrow(()-> new ClienteNullException(HttpStatus.NOT_FOUND,"Clientes Inexistentes"));
     }
 
     @GetMapping("/buscar/cliente/parametro")
