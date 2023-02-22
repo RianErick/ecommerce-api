@@ -1,4 +1,4 @@
-# ecommerce-api
+# Ecommerce - API
 Desenvolvedor : Rian Erick Silva
 
 Por meio desse projeto apliquei as boas praticas para o desenvolvimento de rest-api com Spring 
