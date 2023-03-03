@@ -1,11 +1,5 @@
 # Ecommerce - API
-Desenvolvedor : Rian Erick Silva
-
-Por meio desse projeto apliquei as boas praticas para o desenvolvimento de rest-api com Spring 
-Utilizando Java 17, MySQl , JPA , Flyway e tratamentos de erros.
-
-O Projeto consiste em um crud dos modelos atraves do sistema objeto relacional e persistencia dos dados utilizando 
-Spring Data JPA , tambem como service de pedido de produtos.
+Neste projeto, apliquei boas práticas no desenvolvimento de uma REST API utilizando Java 17, MySQL, JPA, Flyway e tratamentos de erros. O objetivo do projeto é implementar um CRUD dos modelos por meio de um sistema objeto-relacional e persistência dos dados com o uso do Spring Data JPA. Além disso, o projeto também inclui um serviço para pedidos de produtos
 
 
 
