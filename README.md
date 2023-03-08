@@ -30,12 +30,6 @@ spring.datasource.password=<sua_senha>
 
 <p>O banco de dados será criado automaticamente durante a inicialização da aplicação graças à biblioteca Flyway, que irá executar as migrações necessárias.</p>
 
-<h2>Como executar a aplicação</h2>
-
-<p>Para executar a aplicação, basta rodar o comando <code>mvn spring-boot:run</code> na pasta raiz do projeto.</p>
-
-<p>A aplicação irá subir na porta 8080 por padrão. Para acessar o Swagger e testar os endpoints, basta acessar o seguinte endereço: <code>http://localhost:8080/swagger-ui.html</code></p>
-
 <h2>Endpoints disponíveis</h2>
 
 <p>Abaixo estão listados os endpoints disponíveis na aplicação:</p>
