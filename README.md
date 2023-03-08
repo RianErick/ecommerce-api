@@ -28,7 +28,7 @@ spring.datasource.username=<seu_username>
 spring.datasource.password=<sua_senha>
 </pre>
 
-<p>O banco de dados será criado automaticamente durante a inicialização da aplicação graças à biblioteca Flyway, que irá executar as migrações necessárias.</p>
+<p>O banco de dados será criado automaticamente durante a inicialização da aplicação graças à biblioteca Flyway, que irá executar as migrações necessárias, para clonar as tablas basta copiar os comandos da db/migration.</p>
 
 <h2>Endpoints disponíveis</h2>
 
