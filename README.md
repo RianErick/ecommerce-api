@@ -2,7 +2,6 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>README - Back End de um sistema de E-commerce</title>
   </head>
   <body>
     <h1>README - Back End de um sistema de E-commerce</h1>
