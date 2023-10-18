@@ -1,57 +1,27 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-  </head>
-  <body>
-    <h1>README - Back End de um sistema de E-commerce</h1>
-    <p>Este projeto é um back end para um sistema de E-commerce com operações CRUD para Produtos e Clientes, além de solicitações de produtos com informações sobre o destinatário e outros detalhes.</p>
+# Sistema de E-Commerce - Backend
 
-<p>Foi utilizado o framework Spring Boot em conjunto com Spring Data JPA para a implementação do sistema. O banco de dados utilizado foi o MySQL e para gerenciamento de migrações foi utilizado o Flyway.</p>
+Este projeto é o backend de um sistema de E-Commerce, com funcionalidades de operações CRUD para produtos e clientes, além de solicitações de produtos com informações detalhadas sobre o destinatário e outros recursos.
 
-<h2>Requisitos</h2>
+## Tecnologias Utilizadas
 
-<ul>
-  <li>JDK 11 ou superior</li>
-  <li>Maven 3.6 ou superior</li>
-  <li>MySQL 8.0 ou superior</li>
-</ul>
+- **Spring Boot**: Utilizado para a implementação do sistema.
+- **Spring Data JPA**: Facilita o acesso aos dados e operações CRUD.
+- **MySQL**: Banco de dados usado para armazenar os dados.
+- **Flyway**: Gerencia migrações de banco de dados para manter a estrutura da base de dados consistente.
 
-<h2>Configuração do Banco de Dados</h2>
+## Requisitos
 
-<p>Antes de iniciar a aplicação, é necessário criar o banco de dados e configurar as credenciais no arquivo <code>application.properties</code>:</p>
+Para executar este projeto, você precisa ter instalado:
 
-<pre>
+- JDK 11 ou superior
+- Maven 3.6 ou superior
+- MySQL 8.0 ou superior
+
+## Configuração do Banco de Dados
+
+Antes de iniciar a aplicação, é necessário criar o banco de dados e configurar as credenciais no arquivo `application.properties`:
+
+```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/ecommerce
-spring.datasource.username=<seu_username>
-spring.datasource.password=<sua_senha>
-</pre>
-
-<p>O banco de dados será criado automaticamente durante a inicialização da aplicação graças à biblioteca Flyway, que irá executar as migrações necessárias, para clonar as tablas basta copiar os comandos da db/migration.</p>
-
-<h2>Endpoints disponíveis</h2>
-
-<p>Abaixo estão listados os endpoints disponíveis na aplicação:</p>
-
-<h3>Produtos</h3>
-
-<ul>
-  <li><code>GET /produtos</code>: Retorna uma lista de todos os produtos cadastrados.</li>
-  <li><code>GET /produtos/{id}</code>: Retorna os detalhes de um produto específico.</li>
-  <li><code>POST /produtos</code>: Cria um novo produto.</li>
-  <li><code>PUT /produtos/{id}</code>: Atualiza os dados de um produto específico.</li>
-  <li><code>DELETE /produtos/{id}</code>: Remove um produto específico.</li>
-</ul>
-
-<h3>Clientes</h3>
-
-<ul>
-  <li><code>GET /clientes</code>: Retorna uma lista de todos os clientes cadastrados.</li>
-  <li><code>GET /clientes/{id}</code>: Retorna os detalhes de um cliente específico.</li>
-  <li><code>POST /clientes</code>: Cria um novo cliente.</li>
-  <li><code>PUT /clientes/{id}</code>: Atualiza os dados de um cliente específico.</li>
-  <li><code>DELETE /clientes/{
-
-
-
-
+spring.datasource.username=seu-username
+spring.datasource.password=sua-senha
