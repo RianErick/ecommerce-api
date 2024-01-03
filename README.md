@@ -1,4 +1,4 @@
-# Sistema de E-Commerce - Backend
+# API Treinar Spring Boot - E-Commerce
 
 Este projeto é o backend de um sistema de E-Commerce, com funcionalidades de operações CRUD para produtos e clientes, além de solicitações de produtos com informações detalhadas sobre o destinatário e outros recursos.
 
